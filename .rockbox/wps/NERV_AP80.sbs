@@ -2,6 +2,7 @@
 # Original NERV by EppsNL - see cfg file for credits, licenses and what not
 # Adapted from the 480x360 landscape Innioasis Y1 theme to a
 # 360x640 portrait Hidizs AP80 Pro Max layout.
+# v2: smaller fonts, wider menu viewport.
 #
 # SBS File
 # Status Bar Off
@@ -11,11 +12,11 @@
 %?Lt<|>
 
 # Preload Fonts
-%Fl(2,18-KodeMonoMPlus2-SemiBold.fnt)
-%Fl(3,22-KodeMonoMPlus2-SemiBold.fnt)
-%Fl(4,35-KodeMonoMPlus2-SemiBold.fnt)
-%Fl(5,42-KodeMonoMPlus2-SemiBold.fnt)
-%Fl(6,108-KodeMonoMPlus2-Bold.fnt)
+%Fl(2,15-KodeMonoMPlus2-SemiBold.fnt)
+%Fl(3,18-KodeMonoMPlus2-SemiBold.fnt)
+%Fl(4,22-KodeMonoMPlus2-SemiBold.fnt)
+%Fl(5,29-KodeMonoMPlus2-SemiBold.fnt)
+%Fl(6,35-KodeMonoMPlus2-SemiBold.fnt)
 
 # Preload Images
 %xl(T,stop_icon.bmp,0,0)
@@ -33,36 +34,36 @@
 %Vi(clearScreen,0,0,1,1,-)
 
 # NERV logo
-%Vl(info,20,20,42,42,-)
+%Vl(info,16,18,42,42,-)
 %xd(NERVLOGO)
 
 # Menu title
-%V(72,22,190,42,4)
+%V(72,22,180,30,3)
 %al%s%?Lt<%Lt|NERV>
 
 # NERV label
-%Vl(info,268,24,76,16,2)
+%Vl(info,252,18,92,18,2)
 %acNERV AP80
 
 # Battery percentage
-%Vl(info,268,44,76,16,2)
+%Vl(info,252,40,92,18,2)
 %ac%?bp<EXT PWR|Bat: %bl%%>%Vs(invert)
 
 #__Line
-%Vl(info,20,78,320,1,-)
-%dr(0,0,320,1,FF3CDC)
+%Vl(info,16,70,328,1,-)
+%dr(0,0,328,1,FF3CDC)
 
 #__UI Viewport
-%Vi(menuViewport,20,88,320,444,4)
+%Vi(menuViewport,16,80,328,468,4)
 
 #__Line
-%Vl(info,20,536,320,1,-)
-%dr(0,0,320,1,FF3CDC)
+%Vl(info,16,556,328,1,-)
+%dr(0,0,328,1,FF3CDC)
 
 #__Now Playing
-%Vl(info,20,560,31,16,-)
+%Vl(info,40,576,31,16,-)
 %?mp<%xd(T)|%xd(L)|%xd(Z)|%xd(F)|%xd(R)>
-%Vl(info,56,556,268,24,3)
+%Vl(info,80,570,268,26,3)
 %al %?it<%ia - %it|STOPPED>%Vs(invert)
 
 #__USB

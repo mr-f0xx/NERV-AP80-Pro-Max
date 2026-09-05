@@ -59,3 +59,12 @@ battery) were recoloured to match.
   which was based on SPAZZ by Chuck Lardo & Spinoffs SNAZZ/SNAZZ2 by Jihoon Kim
   and SNAZZY by Phil Graves.
 - Fonts: KodeMono / MPLUS2 (merged to support katakana and hiragana).
+
+## v2 — full-screen layout & smaller fonts
+
+- Now-playing screen relaid out to fill the whole 360x640: album art enlarged to
+  320x320 (nearly full width) and the track info / progress / time rows spread to
+  the bottom of the screen, removing the empty area at the bottom.
+- All in-skin fonts reduced (now 15/18/22/29/35) and the default theme font
+  changed to the 22px face for a tighter UI.
+- Repo cleaned: unused fonts and image assets removed (repo shrank from ~40MB).
