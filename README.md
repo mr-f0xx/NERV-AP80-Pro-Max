@@ -68,3 +68,9 @@ battery) were recoloured to match.
 - All in-skin fonts reduced (now 15/18/22/29/35) and the default theme font
   changed to the 22px face for a tighter UI.
 - Repo cleaned: unused fonts and image assets removed (repo shrank from ~40MB).
+
+## v3 — battery %, model name & larger track info
+
+- Battery now correctly shows the "%" (the icon no longer overlaps the text and hides it).
+- Header label now reads "NERV AP80 Pro Max".
+- Track title / artist / album / year / file-info fonts bumped slightly (title 29, rest 22, file 18) for better readability on the now-playing screen.

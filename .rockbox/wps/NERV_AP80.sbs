@@ -38,15 +38,15 @@
 %xd(NERVLOGO)
 
 # Menu title
-%V(72,22,180,30,3)
+%V(72,22,150,30,3)
 %al%s%?Lt<%Lt|NERV>
 
 # NERV label
-%Vl(info,252,18,92,18,2)
-%acNERV AP80
+%Vl(info,226,18,118,18,2)
+%acAP80 Pro Max
 
 # Battery percentage
-%Vl(info,252,40,92,18,2)
+%Vl(info,226,40,118,18,2)
 %ac%?bp<EXT PWR|Bat: %bl%%>%Vs(invert)
 
 #__Line

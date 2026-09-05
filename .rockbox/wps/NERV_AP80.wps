@@ -3,6 +3,7 @@
 # Adapted from the 480x360 landscape Innioasis Y1 theme to a
 # 360x640 portrait Hidizs AP80 Pro Max layout.
 # v2: full-screen now-playing layout with smaller fonts.
+# v3: battery shows %, model name, slightly larger track-info fonts.
 
 #__WPS File
 
@@ -38,15 +39,15 @@
 #----------- Main Display (full 360x640) ---------#
 
 #__NERV Label
-%Vl(MainDisplay,16,16,120,22,3)
-%al%sNERV AP80
+%Vl(MainDisplay,16,16,200,22,3)
+%al%sNERV AP80 Pro Max
 
 #__Battery Percentage
-%Vl(MainDisplay,180,16,150,22,3)
+%Vl(MainDisplay,218,16,100,22,3)
 %ar%?bp<EXT PWR|Bat: %bl%%>
 
 #__Battery Icon
-%Vl(MainDisplay,324,18,32,18,-)
+%Vl(MainDisplay,326,18,32,18,-)
 %?bp<%xd(He)|%?bl<%xd(Ha)|%xd(Hb)|%xd(Hc)|%xd(Hd)|%xd(He)>>
 
 #__Volume Text + Bar
@@ -71,48 +72,48 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %?C<%Cd|%xd(AlbumArt)>
 
 #__Track Title
-%Vl(MainDisplay,16,436,328,30,4)
+%Vl(MainDisplay,16,432,328,34,5)
 %al%s%?it<%it|%fn>
 
 #__Artist
-%Vl(MainDisplay,16,468,328,24,3)
+%Vl(MainDisplay,16,468,328,28,4)
 %al%s%?ia<%ia|NO TAG>
 
 #__Album
-%Vl(MainDisplay,16,496,328,24,3)
+%Vl(MainDisplay,16,500,328,28,4)
 %al%s%?id<%id|NO ALBUM>
 
 #__Year
-%Vl(MainDisplay,16,522,328,22,3)
+%Vl(MainDisplay,16,532,328,26,4)
 %al%s%?iy<%iy|NO YEAR>
 
 #__File Info
-%Vl(MainDisplay,16,548,328,20,2)
+%Vl(MainDisplay,16,560,328,24,3)
 %al%s%fc | %fb kbps | %fk kHz
 
 #__Track Progress Bar
-%Vl(MainDisplay,16,582,328,1,-)
+%Vl(MainDisplay,16,588,328,1,-)
 %dr(0,0,328,1,FF3CDC)
-%Vl(MainDisplay,16,583,328,7,-)
+%Vl(MainDisplay,16,589,328,7,-)
 %pb(0,0,328,7,PBB,slider,PB)
-%Vl(MainDisplay,16,591,328,1,-)
+%Vl(MainDisplay,16,597,328,1,-)
 %dr(0,0,328,1,FF3CDC)
 
 #__Play/Pause Icons
-%V(60,606,31,16,-)
+%V(40,608,31,16,-)
 %?mp<%xd(PBI,1)|%xd(PBI,2)|%xd(PBI,3)|%xd(PBI,4)|%xd(PBI,5)>
 
 #__Next Up Selector
 %?pE(20)<%?pS(10)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
 
 #__Track Time / Playlist position / Play count
-%Vl(curInfo,98,600,222,24,2)
+%Vl(curInfo,98,604,222,26,3)
 %al%pc/%pt%ac%pp/<%ar%pp/%pe|%ac%pp/%pe%ar%rpx %rr %| %ra>
 
 #__Next Up
-%Vl(nextInfo,98,600,24,24,2)
+%Vl(nextInfo,98,604,24,26,3)
 %ac→%Vs(invert)
-%Vl(nextInfo,124,600,196,24,2)
+%Vl(nextInfo,124,604,196,26,3)
 %ac%s%?Ia<%Ia%?It< - %It>|%Fn> %Vs(invert)
 
 #-------- Lock Screen Layer -------#
@@ -129,7 +130,7 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %ar%bl%%
 
 #__Battery Icon
-%Vl(LockScreen,324,18,32,18,-)
+%Vl(LockScreen,326,18,32,18,-)
 %?bp<%xd(He)|%?bl<%xd(Ha)|%xd(Hb)|%xd(Hc)|%xd(Hd)|%xd(He)>>
 
 #__Time
@@ -153,25 +154,25 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %xd(AlbumArt)
 
 #__Track Title
-%Vl(LockScreen,16,436,328,30,4)
+%Vl(LockScreen,16,432,328,34,5)
 %al%s%?it<%it|%fn>
 
 #__Artist
-%Vl(LockScreen,16,468,328,24,3)
+%Vl(LockScreen,16,468,328,28,4)
 %al%s%?ia<%ia|NO TAG>
 
 #__Album
-%Vl(LockScreen,16,496,328,24,3)
+%Vl(LockScreen,16,500,328,28,4)
 %al%s%?id<%id|NO ALBUM>
 
 #__File Info
-%Vl(LockScreen,16,522,328,20,2)
+%Vl(LockScreen,16,532,328,22,3)
 %al%s%fc | %fb | %ff
 
 #__Track Progress Bar
-%Vl(LockScreen,16,582,328,1,-)
+%Vl(LockScreen,16,588,328,1,-)
 %dr(0,0,328,1)
-%Vl(LockScreen,16,583,328,7,-)
+%Vl(LockScreen,16,589,328,7,-)
 %pb(0,0,328,7,PBB,slider,PB)
-%Vl(LockScreen,16,591,328,1,-)
+%Vl(LockScreen,16,597,328,1,-)
 %dr(0,0,328,1)
