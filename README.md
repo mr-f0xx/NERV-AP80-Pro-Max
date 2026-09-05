@@ -74,3 +74,8 @@ battery) were recoloured to match.
 - Battery now correctly shows the "%" (the icon no longer overlaps the text and hides it).
 - Header label now reads "NERV AP80 Pro Max".
 - Track title / artist / album / year / file-info fonts bumped slightly (title 29, rest 22, file 18) for better readability on the now-playing screen.
+
+## v4 — artist name in theme pink
+
+- Artist name on the now-playing (and lock) screen now renders in the theme's
+  pink accent color (#FF3CDC) instead of cyan, matching the rest of the theme.
