@@ -28,7 +28,8 @@ palette, fonts and icons.
 - **Bitmaps resized** to the portrait layout:
   - `AlbumArt.bmp` fallback art: 171 × 171 → 240 × 240
   - `pb_back.bmp` progress-bar track: 420 × 8 → 320 × 8
-  - `usb_noise.bmp` USB animation regenerated for 360 × 640 (3 frames stacked)
+  - USB screen replaced with a clean "USB CONNECTED" message (the old full-screen
+    static-noise `usb_noise.bmp` splash was removed as it filled the whole display)
   - All other monochrome icon/status strips are reused unchanged.
 
 ## Cyberpunk colour palette

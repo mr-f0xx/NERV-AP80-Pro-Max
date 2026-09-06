@@ -24,7 +24,6 @@
 %xl(Z,pause_icon.bmp,0,0)
 %xl(F,forward_icon.bmp,0,0)
 %xl(R,rewind_icon.bmp,0,0)
-%xl(U,usb_noise.bmp,0,0,3)
 %xl(NERVLOGO,nervlogo.bmp,0,0)
 
 # USB screen
@@ -67,5 +66,9 @@
 %al %?it<%ia - %it|STOPPED>%Vs(invert)
 
 #__USB
-%Vl(usb,0,0,360,640,6)
-%?bp<%t(0.1)%xd(Ua);%t(0.1)%xd(Ub);%t(0.1)%xd(Uc)>
+%Vl(usb,0,80,360,70,-)
+%ac%xd(NERVLOGO)
+%Vl(usb,0,190,360,90,6)
+%acUSB CONNECTED
+%Vl(usb,0,320,360,50,4)
+%acBat: %bl%%
