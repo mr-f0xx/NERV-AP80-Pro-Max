@@ -54,7 +54,7 @@
 %dr(0,0,328,1,FF3CDC)
 
 #__UI Viewport
-%Vi(menuViewport,16,80,328,468,4)
+%Vi(menuViewport,16,80,328,470,5)
 
 #__Line
 %Vl(info,16,556,328,1,-)
