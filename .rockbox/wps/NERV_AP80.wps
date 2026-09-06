@@ -66,9 +66,10 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %Vl(MainDisplay,16,90,328,1,-)
 %dr(0,0,328,1,FF3CDC)
 
-#__Album Art (fills the width, 320x320)
+#__Album Art (fills the width, 320x320) with pink border
 %Vl(MainDisplay,20,102,320,320,-)
 %Cl(1,1,318,318,c,c)
+%dr(0,0,320,1,FF3CDC)%dr(0,319,320,1,FF3CDC)%dr(0,1,1,320,FF3CDC)%dr(319,1,1,320,FF3CDC)
 %?C<%Cd|%xd(AlbumArt)>
 
 #__Track Title
