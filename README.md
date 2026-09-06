@@ -8,6 +8,10 @@ This modified version relayouts every screen for the **portrait 360 × 640**
 display of the **Hidizs AP80 Pro Max**, keeping the same NERV look, but witch cyber-punk-ish
 palette, fonts and icons.
 
+| Now playing | Menu / browser |
+| ----------- | -------------- |
+| ![Now playing](screenshots/now_playing.png) | ![Menu](screenshots/menu.png) |
+
 ## What changed
 
 - **WPS (`NERV_AP80.wps`)** — redesigned from horizontal to vertical:
