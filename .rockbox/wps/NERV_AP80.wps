@@ -57,14 +57,10 @@
 %pv(0,0,150,27,VB,backdrop,VBB)
 
 #__Shuffle / Repeat
-%Vl(MainDisplay,244,46,70,16,2)
-%alSHUFFLE
-%Vl(MainDisplay,318,46,40,16,-)
-%xd(O,2)
-%Vl(MainDisplay,244,66,70,16,2)
-%alREPEAT
-%Vl(MainDisplay,318,66,40,16,-)
-%xd(O,2)
+%Vl(MainDisplay,254,46,88,16,2)
+SHF%?ps<%xd(O,2)|%xd(O)>
+%Vl(MainDisplay,254,66,88,16,2)
+%?mm<RPT%xd(O)|RPT%xd(O,2)|RP1%xd(O,2)|RND%xd(O,2)|A-B%xd(O,2)>
 
 #__Top Line
 %Vl(MainDisplay,16,90,328,1,-)
