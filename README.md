@@ -5,7 +5,7 @@ Portrait adaptation of the **NERV** Rockbox theme by EppsNL
 
 The original theme was designed for the **landscape 480 × 360** Innioasis Y1.
 This modified version relayouts every screen for the **portrait 360 × 640**
-display of the **Hidizs AP80 Pro Max**, keeping the same NERV look, orange/black
+display of the **Hidizs AP80 Pro Max**, keeping the same NERV look, but witch cyber-punk-ish
 palette, fonts and icons.
 
 ## What changed
