@@ -92,3 +92,7 @@ which is invalid Rockbox syntax — Rockbox rejected the WPS and fell back to th
 default track-info layout. Fixed by setting the artist foreground colour with the
 correct `%Vf(FF3CDC)` tag inside the artist viewport on both the now-playing and
 lock screens.
+
+- USB screen: removed the off-centre NERV logo; now shows a centered
+  "USB CONNECTED", a cyberpunk cyan/pink USB-plug icon (`usb_icon.bmp`)
+  below it, a CHARGING/USB status label and the battery level.
