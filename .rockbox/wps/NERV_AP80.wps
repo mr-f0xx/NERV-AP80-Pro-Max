@@ -76,7 +76,8 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %al%s%?it<%it|%fn>
 
 #__Artist
-%Vl(MainDisplay,16,468,328,28,4,FF3CDC)
+%Vl(MainDisplay,16,468,328,28,4)
+%Vf(FF3CDC)
 %al%s%?ia<%ia|NO TAG>
 
 #__Album
@@ -158,7 +159,8 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %al%s%?it<%it|%fn>
 
 #__Artist
-%Vl(LockScreen,16,468,328,28,4,FF3CDC)
+%Vl(LockScreen,16,468,328,28,4)
+%Vf(FF3CDC)
 %al%s%?ia<%ia|NO TAG>
 
 #__Album

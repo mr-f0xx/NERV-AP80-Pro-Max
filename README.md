@@ -79,3 +79,11 @@ battery) were recoloured to match.
 
 - Artist name on the now-playing (and lock) screen now renders in the theme's
   pink accent color (#FF3CDC) instead of cyan, matching the rest of the theme.
+
+## v5 — fix artist pink colour (restores WPS from default fallback)
+
+The previous change put the colour inside the viewport tag as an extra parameter,
+which is invalid Rockbox syntax — Rockbox rejected the WPS and fell back to the
+default track-info layout. Fixed by setting the artist foreground colour with the
+correct `%Vf(FF3CDC)` tag inside the artist viewport on both the now-playing and
+lock screens.
