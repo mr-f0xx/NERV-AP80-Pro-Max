@@ -29,7 +29,11 @@ Font licences apply separately from the theme artwork/layout notice. The notices
 
 ## Previews and Rockbox
 
-Screenshots are unretouched captures from the Rockbox AP80 Pro Max simulator. The `Neon Signal` preview fixture is an original generated test tone and procedural cover, created by `tools/create_preview_media.py`; it is not a commercially released track. Demo media is not installed by the theme ZIP.
+Screenshots are unretouched captures from the Rockbox AP80 Pro Max simulator. The current Now Playing screenshot features **Good Light — Children of Zeus**, with cover art for **As The World Burns**, sourced from the [artist's official Bandcamp page](https://childrenofzeus.bandcamp.com/album/as-the-world-burns). Album art remains the property of its respective rights holders and is not relicensed under the theme or font licences.
+
+Only the artwork and metadata identify the song. The screenshot's audio-level meters are driven by a generated stereo test tone, not the commercial recording. `tools/create_good_light_preview.py` reproduces the fixture from a separately supplied cover. Neither the raw cover nor any song audio is installed by the theme ZIP.
+
+The separate `Neon Signal` test fixture created by `tools/create_preview_media.py` uses original procedural artwork and generated audio. It remains available for tests but is no longer the README's Now Playing preview.
 
 Rockbox provides the firmware, simulator, skin parser, audio metering and touch actions: https://www.rockbox.org/ · https://github.com/Rockbox/rockbox
 

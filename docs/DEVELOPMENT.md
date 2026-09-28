@@ -14,6 +14,8 @@ The test suite uses Python's standard library. Asset/preview-media generation ad
 python3 tools/generate_level_assets.py
 python3 tools/generate_charge_assets.py
 python3 tools/create_preview_media.py /path/to/rockbox-sim/simdisk
+# Current README preview: supply the artist's cover separately.
+python3 tools/create_good_light_preview.py /path/to/rockbox-sim/simdisk /path/to/cover.jpg
 ```
 
 ## Rockbox parser and simulator
