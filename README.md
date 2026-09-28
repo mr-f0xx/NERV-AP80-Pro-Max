@@ -8,9 +8,9 @@ Built for the **360 × 640 portrait touchscreen**: large cover art, scrolling tr
 
 ## Preview
 
-| Main menu | Now playing | USB / charging |
+| Main menu | Now playing · Good Light | USB / charging |
 |:---:|:---:|:---:|
-| <a href="screenshots/menu.png"><img src="screenshots/menu.png" width="240" alt="NERV main menu, 360 by 640 pixels"></a> | <a href="screenshots/now_playing.png"><img src="screenshots/now_playing.png" width="240" alt="NERV now-playing screen with stereo LED meters, 360 by 640 pixels"></a> | <a href="screenshots/charging.png"><img src="screenshots/charging.png" width="240" alt="NERV USB charging dashboard, 360 by 640 pixels"></a> |
+| <a href="screenshots/menu.png"><img src="screenshots/menu.png" width="240" alt="NERV main menu, 360 by 640 pixels"></a> | <a href="screenshots/now_playing.png"><img src="https://raw.githubusercontent.com/mr-f0xx/NERV-AP80-Pro-Max/77be65903e840eb47cc9329f5a4f88a4a04e83ad/screenshots/now_playing.png" width="240" alt="Good Light by Children of Zeus — NERV now-playing screen, 360 by 640 pixels"></a> | <a href="screenshots/charging.png"><img src="screenshots/charging.png" width="240" alt="NERV USB charging dashboard, 360 by 640 pixels"></a> |
 
 Actual, unretouched **Rockbox AP80 Pro Max simulator captures**, each at the device's native **360 × 640 / 9:16** screen format. No stretched screenshots or device-photo mockups. Now Playing uses **“Good Light” by Children of Zeus**, with the album artwork and metadata from [*As The World Burns*](https://childrenofzeus.bandcamp.com/album/as-the-world-burns). The audio driving the meters is a generated test tone, not the song recording; codec/bitrate and battery/clock readings belong to the simulator fixture, not a physical player. [Capture and validation details →](docs/VALIDATION.md)
 
