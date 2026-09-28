@@ -1,9 +1,5 @@
-# NERV AP80 Pro Max by EppsNL (adapted)
-# Original NERV by EppsNL - see cfg file for credits, licenses and what not
-# Adapted from the 480x360 landscape Innioasis Y1 theme to a
-# 360x640 portrait Hidizs AP80 Pro Max layout.
-# v2: smaller fonts, wider menu viewport.
-#
+# NERV AP80 Pro Max — 360 x 640
+# Adapted from NERV by EppsNL (CC-BY-SA). See CREDITS.md.
 # SBS File
 # Status Bar Off
 %wd
@@ -25,9 +21,12 @@
 %xl(F,forward_icon.bmp,0,0)
 %xl(R,rewind_icon.bmp,0,0)
 %xl(NERVLOGO,nervlogo.bmp,0,0)
-%xl(UsbIcon,usb_icon.bmp,0,0)
+%xl(ChargeFill,charge_fill.bmp,0,0)
+%xl(ChargeBack,charge_back.bmp,0,0)
 
 # USB screen
+# SBS hides its implicit viewport; run screen routing in an explicit one.
+%V(0,0,360,1,-)
 %?if(%cs, =, 21)<%VI(clearScreen)%Vd(usb)|%VI(menuViewport)%Vd(info)>
 
 # Clear Screen
@@ -38,7 +37,7 @@
 %xd(NERVLOGO)
 
 # Menu title
-%V(72,22,150,30,3)
+%Vl(info,72,22,150,30,3)
 %al%s%?Lt<%Lt|NERV>
 
 # NERV label
@@ -67,11 +66,87 @@
 %al %?it<%ia - %it|STOPPED>%Vs(invert)
 
 #__USB
-%Vl(usb,0,70,360,80,6)
+# USB-only dashboard: enabled by the existing current-screen selector (21).
+# Each viewport is conditional, so nothing leaks into the menu/browser.
+# No invented charging ETA, current, wattage, or transfer-progress readings.
+
+# Header
+%Vl(usb,16,18,42,42,-)
+%xd(NERVLOGO)
+%Vl(usb,72,18,272,28,4)
+%Vf(00E5FF)
+%alNERV // POWER
+%Vl(usb,72,48,272,18,2)
+%Vf(FF3CDC)
+%alAP80 PRO MAX / USB
+%Vl(usb,16,78,328,1,-)
+%dr(0,0,328,1,FF3CDC)
+
+# Battery readout; unknown levels remain unknown, never shown as zero/full.
+%Vl(usb,16,102,328,22,3)
+%Vf(00E5FF)
 %acUSB CONNECTED
-%Vl(usb,135,170,90,90,-)
-%xd(UsbIcon)
-%Vl(usb,0,300,360,30,-)
-%ac%?bp<CHARGING|USB>
-%Vl(usb,0,360,360,50,4)
-%acBat: %bl%%
+%Vl(usb,16,140,328,48,6)
+%Vf(00E5FF)
+%ac%?if(%bl, >=, 0)<%bl%%|--%%>
+
+# Battery outline and segmented level gauge (not a charging animation).
+%Vl(usb,28,196,304,86,-)
+%dr(0,0,296,1,00E5FF)%dr(0,85,296,1,00E5FF)%dr(0,0,1,86,00E5FF)%dr(295,0,1,86,00E5FF)%dr(296,28,8,30,FF3CDC)
+%Vl(usb,40,209,272,60,-)
+%?if(%bl, >=, 0)<%bl(0,0,272,60,ChargeFill,backdrop,ChargeBack,horizontal,notouch)|%xd(ChargeBack)>
+
+# Charge monitoring and power detection are different firmware capabilities.
+# CHARGING only appears when bc reports it; a false bc is not proof of full.
+%Vl(usb,16,298,328,28,4)
+%Vf(FF3CDC)
+%ac%?bc<CHARGING|%?if(%bl, =, 100)<BATTERY FULL|%?bp<EXTERNAL POWER|USB CONNECTED>>>
+%Vl(usb,16,330,328,18,2)
+%Vf(00E5FF)
+%acBATTERY STATUS / LIVE
+
+# Telemetry cards: background viewports precede their text.
+%Vl(usb,16,366,328,52,-)
+%dr(0,0,328,52,100A18)%dr(0,0,2,52,943CFF)
+%Vl(usb,28,383,160,18,2)
+%Vf(00E5FF)
+%Vb(100A18)
+%alBATTERY VOLTAGE
+%Vl(usb,200,378,132,28,4)
+%Vf(FF3CDC)
+%Vb(100A18)
+%ar%?if(%bv, =, ?)<-- V|%bv V>
+
+%Vl(usb,16,430,328,52,-)
+%dr(0,0,328,52,100A18)%dr(0,0,2,52,943CFF)
+%Vl(usb,28,447,108,18,2)
+%Vf(00E5FF)
+%Vb(100A18)
+%alPOWER INPUT
+%Vl(usb,144,442,188,28,4)
+%Vf(FF3CDC)
+%Vb(100A18)
+%ar%?bp<EXTERNAL|USB LINK>
+
+%Vl(usb,16,494,328,66,-)
+%dr(0,0,328,66,100A18)%dr(0,0,2,66,943CFF)
+%Vl(usb,28,511,140,18,2)
+%Vf(00E5FF)
+%Vb(100A18)
+%alDEVICE TIME
+%Vl(usb,196,502,136,28,4)
+%Vf(FF3CDC)
+%Vb(100A18)
+%ar%?cc<%cH:%cM|--:-->
+%Vl(usb,196,536,136,18,2)
+%Vf(00E5FF)
+%Vb(100A18)
+%ar%?cc<%cY-%cm-%cd|NO RTC>
+
+# Static safety reminder, not a claim that transfers have finished.
+%Vl(usb,16,580,328,18,2)
+%Vf(FF3CDC)
+%acEJECT ON HOST
+%Vl(usb,16,604,328,18,2)
+%Vf(00E5FF)
+%acBEFORE DISCONNECTING

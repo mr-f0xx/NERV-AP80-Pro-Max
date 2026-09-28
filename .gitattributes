@@ -1,0 +1,5 @@
+*.png binary
+*.bmp binary
+*.fnt binary
+# Preserve third-party notices verbatim, including their original whitespace.
+LICENSES/*.txt -whitespace

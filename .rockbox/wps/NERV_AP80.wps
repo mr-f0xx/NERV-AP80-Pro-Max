@@ -1,10 +1,5 @@
-# NERV AP80 Pro Max by EppsNL (adapted)
-# Original NERV by EppsNL - see cfg file for credits, licenses and what not
-# Adapted from the 480x360 landscape Innioasis Y1 theme to a
-# 360x640 portrait Hidizs AP80 Pro Max layout.
-# v2: full-screen now-playing layout with smaller fonts.
-# v3: battery shows %, model name, slightly larger track-info fonts.
-
+# NERV AP80 Pro Max — 360 x 640
+# Adapted from NERV by EppsNL (CC-BY-SA). See CREDITS.md.
 #__WPS File
 
 #__Hide The Status Bar
@@ -19,22 +14,18 @@
 
 #__Preload Images
 %xl(H,BatteryStatus.bmp,5)
-%xl(repeat,RepeatStatus.bmp,6)
-%xl(shuffle,ShuffleStatus.bmp,0,0)
 %xl(AlbumArt,AlbumArt.bmp,0,0)
-%xl(P,bb_rbd_123.bmp,3)
 %xl(PBB,pb_back.bmp,0,0)
 %xl(PB,pb.bmp,0,0)
-%xl(BBB,bb_back.bmp,0,0)
-%xl(BB,bb.bmp,0,0)
 %xl(VBB,vb_back.bmp,0,0)
 %xl(VB,vb.bmp,0,0)
 %xl(PBI,Playback_Icons.bmp,5)
 %xl(O,OffOn.bmp,24,0,2)
-%xl(A,album_icon.bmp,0,1,2)
+%xl(EQLit,eq_led_fill.bmp,0,0)
+%xl(EQDark,eq_led_back.bmp,0,0)
 
 #__Show Main Display unless Hold Switch is on
-%?mh<%Vd(LockScreen)%?C<%Vd(LockScreenA)|%Vd(LockScreenB)>|%Vd(MainDisplay)%?bc<%Vd(batCharge)|%Vd(bat)>>
+%?mh<%Vd(LockScreen)%?C<%Vd(LockScreenA)|%Vd(LockScreenB)>|%Vd(MainDisplay)>
 
 #----------- Main Display (full 360x640) ---------#
 
@@ -73,44 +64,64 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %?C<%Cd|%xd(AlbumArt)>
 
 #__Track Title
-%Vl(MainDisplay,16,432,328,34,5)
+%Vl(MainDisplay,16,432,236,34,5)
 %al%s%?it<%it|%fn>
 
 #__Artist
-%Vl(MainDisplay,16,468,328,28,4)
+%Vl(MainDisplay,16,468,236,28,4)
 %Vf(FF3CDC)
 %al%s%?ia<%ia|NO TAG>
 
 #__Album
-%Vl(MainDisplay,16,500,328,28,4)
+%Vl(MainDisplay,16,500,236,28,4)
 %al%s%?id<%id|NO ALBUM>
 
 #__Year
-%Vl(MainDisplay,16,532,328,26,4)
+%Vl(MainDisplay,16,532,236,26,4)
 %al%s%?iy<%iy|NO YEAR>
+
+#__Stereo LED Levels (audio peaks, not frequency bands)
+# Reserve x=264..343, y=432..557; track text ends at x=251.
+# Vertical pL/pR bars fill bottom-up using native Rockbox peak readings.
+# Three LED cells per row are decorative; there are two audio channels.
+# Bars only: no labels, left divider, or bottom separator.
+%Vl(MainDisplay,274,456,24,78,-)
+%?mp<%xd(EQDark)|%pL(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)|%xd(EQDark)|%pL(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)|%pL(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)>
+%Vl(MainDisplay,312,456,24,78,-)
+%?mp<%xd(EQDark)|%pR(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)|%xd(EQDark)|%pR(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)|%pR(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)>
 
 #__File Info
 %Vl(MainDisplay,16,560,328,24,3)
 %al%s%fc | %fb kbps | %fk kHz
 
 #__Track Progress Bar
+# Touch target: screen x=16..343, y=584..603, between file info and footer.
+# Keep this invisible viewport before the visual bar so it cannot erase it.
+# MainDisplay is hidden on hold, so this seek region is inactive when locked.
+%Vl(MainDisplay,16,584,328,20,-)
+%T(0,0,328,20,progressbar)
 %Vl(MainDisplay,16,588,328,1,-)
 %dr(0,0,328,1,FF3CDC)
 %Vl(MainDisplay,16,589,328,7,-)
-%pb(0,0,328,7,PBB,slider,PB)
+%pb(0,0,328,7,PBB,slider,PB,notouch)
 %Vl(MainDisplay,16,597,328,1,-)
 %dr(0,0,328,1,FF3CDC)
 
 #__Play/Pause Icons
+# Tap target: x=24..87, y=604..635; clear of seek bar and time display.
+# MainDisplay disables this region on Hold. Native play toggles play/pause.
+# Keep the invisible touch viewport before the existing icon viewport.
+%Vl(MainDisplay,24,604,64,32,-)
+%T(0,0,64,32,play)
 %V(40,608,31,16,-)
 %?mp<%xd(PBI,1)|%xd(PBI,2)|%xd(PBI,3)|%xd(PBI,4)|%xd(PBI,5)>
 
 #__Next Up Selector
 %?pE(20)<%?pS(10)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
 
-#__Track Time / Playlist position / Play count
+#__Track Time / Playlist Position
 %Vl(curInfo,98,604,222,26,3)
-%al%pc/%pt%ac%pp/<%ar%pp/%pe|%ac%pp/%pe%ar%rpx %rr %| %ra>
+%al%pc / %pt%ar%pp/%pe
 
 #__Next Up
 %Vl(nextInfo,98,604,24,26,3)
@@ -176,6 +187,6 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %Vl(LockScreen,16,588,328,1,-)
 %dr(0,0,328,1)
 %Vl(LockScreen,16,589,328,7,-)
-%pb(0,0,328,7,PBB,slider,PB)
+%pb(0,0,328,7,PBB,slider,PB,notouch)
 %Vl(LockScreen,16,597,328,1,-)
 %dr(0,0,328,1)
