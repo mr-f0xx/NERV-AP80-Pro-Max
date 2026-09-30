@@ -21,7 +21,7 @@ Built for the **360 × 640 portrait touchscreen**: large cover art, live stereo 
   </tr>
 </table>
 
-Each screenshot is shown at the device's exact **360 × 640** format (9:16, 1:1 pixels). They are unretouched **Rockbox AP80 Pro Max simulator captures** — no mockups, stretching or painted-over UI. On narrower windows, scroll the row sideways to see all three.
+Each screenshot is shown at the device's exact **360 × 640** format (9:16, 1:1 pixels). They are unretouched **Rockbox AP80 Pro Max simulator captures** — no mockups, stretching or painted-over UI. All three were re-captured on the 2.0.1 skin, so the tighter LED-meter spacing, the 50 px list rows and the codec colour are the current ones. On narrower windows, scroll the row sideways to see all three.
 
 ### Now Playing
 
