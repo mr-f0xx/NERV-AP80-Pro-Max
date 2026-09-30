@@ -4,7 +4,7 @@
 
 Built for the **360 × 640 portrait touchscreen**: large cover art, live stereo LED meters, tiny touch transport controls, a playback footer in every menu, and a dedicated USB power dashboard.
 
-[**Download theme 2.0.0**](https://github.com/mr-f0xx/NERV-AP80-Pro-Max/releases/tag/theme-v2.0.0) · [Installation](#installation) · [Controls](#controls) · [Compatibility](#compatibility)
+[**Download theme 2.0.1**](https://github.com/mr-f0xx/NERV-AP80-Pro-Max/releases/tag/theme-v2.0.1) · [Installation](#installation) · [Controls](#controls) · [Compatibility](#compatibility)
 
 ## Preview
 
@@ -29,14 +29,16 @@ Each screenshot is shown at the device's exact **360 × 640** format (9:16, 1:1 
 - **Tap or drag the progress bar to seek.**
 - Tiny tactile **previous · play/pause · next** buttons centred at the bottom. The centre icon shows pause while playing and play when paused or stopped.
 - Elapsed / total time on the left; playlist position — and the next track near the end of a song — on the right.
-- Header with volume bar, shuffle/repeat indicators and an outlined pink **segmented battery icon** with a charging bolt.
+- Header with volume bar, shuffle/repeat indicators and an outlined pink **segmented battery icon** with a charging bolt. The volume level box is the same height as the bar beside it.
+- **Tap the shuffle/repeat indicators** (the `SHF` / `RPT` block, top right of the header) to open the **Quick Screen** — the same screen as the firmware's held-menu shortcut.
+- The file line under the year shows the **codec name in the theme's pink**, with the bitrate and sample rate staying cyan.
 
 <sub>Preview track: **“Pluto Moon” by Afta-1**, from *Aftathoughts Vol.1* (2008) — [listen on YouTube](https://www.youtube.com/watch?v=np_ZN1gbPqw). Artwork and metadata identify the song; the audio driving the meters is a generated test tone, and codec, bitrate, battery and clock values come from the simulator.</sub>
 
 ### Main menu
 
 - Pink **NERV** logo, menu title, model label and battery level in the header.
-- Large, icon-led menu and file-browser lists.
+- Large, icon-led menu and file-browser lists on **50 px rows** (`list padding: 26` in `NERV_AP80.cfg`, on top of the 24 px menu font). The eight-item main menu still fits its viewport without scrolling, while shorter menus no longer sit compressed in a block at the top of the screen.
 - **Playback footer on every menu screen:** a tactile pink play/pause button, the current track on a cyan bar, and the **next track** (artist – title) on a pink bar.
 
 ### Charging screen
@@ -49,13 +51,13 @@ Each screenshot is shown at the device's exact **360 × 640** format (9:16, 1:1 
 
 This is a **theme-only package**. Rockbox must already be installed; the download does not include firmware or a bootloader.
 
-1. Download **`NERV-AP80-Pro-Max-theme-v2.0.0.zip`** from the [theme release](https://github.com/mr-f0xx/NERV-AP80-Pro-Max/releases/tag/theme-v2.0.0).
+1. Download **`NERV-AP80-Pro-Max-theme-v2.0.1.zip`** from the [theme release](https://github.com/mr-f0xx/NERV-AP80-Pro-Max/releases/tag/theme-v2.0.1).
 2. Extract it to the root of your player's storage, **merging** its `.rockbox` folder with the existing one. Do not delete or replace your entire Rockbox installation.
 3. Eject the player safely.
 4. Open **Settings → Theme Settings → Browse Theme Files** and select **`NERV_AP80.cfg`**. Menu wording may vary by build.
 5. For touch controls, select **Point** under **Settings → General Settings → Display → Touchscreen Settings**.
 
-**Updating?** Merge the new package over your existing installation and reselect `NERV_AP80.cfg`. `Playback_Icons.bmp` from older versions is no longer used and can be deleted.
+**Updating from 2.0.0?** Merge the new package over your existing installation and reselect `NERV_AP80.cfg`. `Playback_Icons.bmp` from older versions is no longer used and can be deleted.
 
 To install from this repository instead, copy the contents of its `.rockbox/` folder to the matching folder on the player.
 
@@ -66,6 +68,7 @@ To install from this repository instead, copy the contents of its `.rockbox/` fo
 | Progress bar | Tap to seek; drag and release to choose a position |
 | ⏮ · ▶/⏸ · ⏭ (Now Playing, bottom centre) | Previous track · pause/resume · next track |
 | ▶/⏸ (menu footer) | Pause/resume; when stopped, resumes the last playlist |
+| SHF / RPT (Now Playing header) | Open the Quick Screen |
 | Stereo LED meters, up-next bar, USB dashboard | Display only |
 
 Touch targets do not overlap each other or the time readout, and are disabled while the theme's Hold view is shown. Rockbox's own lock and Party Mode restrictions still apply. The theme does not change your touchscreen-mode setting.

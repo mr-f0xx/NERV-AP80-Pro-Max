@@ -33,21 +33,39 @@
 %Vl(MainDisplay,16,16,200,22,3)
 %al%sNERV AP80 Pro Max
 
-#__Battery Percentage
-%Vl(MainDisplay,218,16,100,22,3)
+#__Battery Percentage + Icon
+# The header uses a 16 px margin on both sides: the NERV label starts at x=16
+# and the rule under the header / progress bar end at x=343. Both battery
+# elements follow the same margin on the right, so the icon's right edge sits
+# at x=343 rather than 2 px from the panel edge.
+# Percentage is right-aligned 8 px left of the icon; icon frame is 32x18.
+%Vl(MainDisplay,204,16,100,22,3)
 %ar%?bp<EXT PWR|%bl%%>
 
 #__Battery Icon
-%Vl(MainDisplay,326,18,32,18,-)
+%Vl(MainDisplay,312,18,32,18,-)
 %?bc<%xd(Hh)|%?bl<%xd(Ha)|%xd(Hb)|%xd(Hc)|%xd(Hd)|%xd(He)|%xd(Hf)|%xd(Hg)>>
 
 #__Volume Text + Bar
-%Vl(MainDisplay,16,46,66,34,4)
+# The level box matches the bar's geometry exactly: x=16..81, y=50..76.
+# The box frame is a solid rectangle painted before the text viewport (a
+# Rockbox skin clears a viewport to one font-height, so a rectangle drawn
+# *after* a text line would erase it). The level digits are knocked out of
+# the frame by the inverted text line, leaving no seam.
+%Vl(MainDisplay,16,50,66,27,-)
+%dr(0,0,66,27,00E5FF)
+%Vl(MainDisplay,16,51,66,24,4)
 %ac%pv%Vs(invert)
 %Vl(MainDisplay,94,50,170,27,-)
 %pv(0,0,170,27,VB,backdrop,VBB)
 
 #__Shuffle / Repeat
+# Touch target: screen x=274..343, y=46..81, wrapping both indicator rows
+# (labels and their OffOn icons). Tapping it opens the Quick Screen, i.e.
+# the same screen as the firmware's held-menu shortcut.
+# Declared before the text so this (opaque) viewport cannot erase it.
+%Vl(MainDisplay,274,46,70,36,-)
+%T(0,0,70,36,quickscreen)
 %Vl(MainDisplay,274,46,70,16,2)
 SHF%?ps<%xd(O,2)|%xd(O)>
 %Vl(MainDisplay,274,66,70,16,2)
@@ -84,15 +102,24 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 # Reserve x=264..343, y=432..557; track text ends at x=251.
 # Vertical pL/pR bars fill bottom-up using native Rockbox peak readings.
 # Three LED cells per row are decorative; there are two audio channels.
+# The pair sits 8 px apart (L at x=280..303, R at x=312..335), so the right
+# meter still ends flush with the cover art border at x=340.
 # Bars only: no labels, left divider, or bottom separator.
-%Vl(MainDisplay,274,456,24,78,-)
+%Vl(MainDisplay,280,456,24,78,-)
 %?mp<%xd(EQDark)|%pL(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)|%xd(EQDark)|%pL(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)|%pL(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)>
 %Vl(MainDisplay,312,456,24,78,-)
 %?mp<%xd(EQDark)|%pR(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)|%xd(EQDark)|%pR(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)|%pR(0,0,24,78,EQLit,backdrop,EQDark,vertical,notouch)>
 
 #__File Info
-%Vl(MainDisplay,16,560,328,24,3)
-%al%s%fc | %fb kbps | %fk kHz
+# Codec in the theme pink, the rest of the line stays cyan. Rockbox allows only
+# one foreground colour per line (%Vf must precede the text), so the codec gets
+# its own viewport on the same row: a five-character column at font 3's 10 px
+# pitch, then the rest of the line continues in cyan.
+%Vl(MainDisplay,16,560,50,24,3)
+%Vf(FF3CDC)
+%al%s%fc
+%Vl(MainDisplay,66,560,278,24,3)
+%al%s| %fb kbps | %fk kHz
 
 #__Track Progress Bar
 # Touch target: screen x=16..343, y=584..603, between file info and footer.
@@ -153,11 +180,12 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %?mh<%acLOCKED%Vs(invert)|>
 
 #__Battery Text
-%Vl(LockScreen,230,16,86,25,4)
+# Same 16 px right margin as the main header (icon ends at x=343).
+%Vl(LockScreen,216,16,86,25,4)
 %ar%bl%%
 
 #__Battery Icon
-%Vl(LockScreen,326,18,32,18,-)
+%Vl(LockScreen,312,18,32,18,-)
 %?bc<%xd(Hh)|%?bl<%xd(Ha)|%xd(Hb)|%xd(Hc)|%xd(Hd)|%xd(He)|%xd(Hf)|%xd(Hg)>>
 
 #__Time
@@ -194,8 +222,12 @@ SHF%?ps<%xd(O,2)|%xd(O)>
 %al%s%?id<%id|NO ALBUM>
 
 #__File Info
-%Vl(LockScreen,16,532,328,22,3)
-%al%s%fc | %fb | %ff
+# Same split as the Now Playing file line: pink codec, cyan everything else.
+%Vl(LockScreen,16,532,50,22,3)
+%Vf(FF3CDC)
+%al%s%fc
+%Vl(LockScreen,66,532,278,22,3)
+%al%s| %fb | %ff
 
 #__Track Progress Bar
 %Vl(LockScreen,16,588,328,1,-)
